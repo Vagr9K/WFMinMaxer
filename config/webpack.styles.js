@@ -29,7 +29,7 @@ function PostCSSLoader() {
     loader: 'postcss-loader',
     options: {
       sourceMap: DEBUG ? 'inline' : '',
-      plugins: [autoprefixer],
+      plugins: [autoprefixer()],
     },
   };
 }
