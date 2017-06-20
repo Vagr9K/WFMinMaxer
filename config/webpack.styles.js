@@ -1,5 +1,6 @@
 /* eslint import/no-extraneous-dependencies: 0 */
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const autoprefixer = require('autoprefixer');
 
 const GlobalFilter = [/node_modules/, /react-md/, /\.global.(scss|css)/];
 const Test = /\.(scss|css)$/;
@@ -28,6 +29,7 @@ function PostCSSLoader() {
     loader: 'postcss-loader',
     options: {
       sourceMap: DEBUG ? 'inline' : '',
+      plugins: [autoprefixer],
     },
   };
 }
