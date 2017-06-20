@@ -10,7 +10,9 @@
     "clean": "rm -rf dist.dev/* && rm -rf dist.prod/",
     "serve": "webpack-dev-server --content-base dist.dev/ --inline --hot --colors -d",
     "build": "NODE_ENV='production' webpack -p --progress --display-chunks --colors",
-    "build-dev": "webpack --progress -d --display-chunks",
+    "build-dev": "webpack --progress -d --display-chunks --colors",
+    "build-watch": "NODE_ENV='production' webpack -p -w --progress --display-chunks --colors",
+    "build-watch-dev": "webpack --progress -d -w --display-chunks --colors",
     "bundle-stats": "NODE_ENV='production' webpack -p --progress --display-chunks --colors --json > bundle-stats.json",
     "bundle-stats-analyze": "npm run bundle-stats && cat bundle-stats.json | webpack-bundle-size-analyzer",
     "gh-deploy": "gh-pages -d dist.prod"
