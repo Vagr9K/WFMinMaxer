@@ -49,4 +49,10 @@ const config = {
 };
 
 const styleConfig = Styles(DEBUG);
-module.exports = Merge(config, styleConfig);
+module.exports = function (env) {
+  const conf = Merge(config, styleConfig);
+  if (env.gh) {
+    conf.output.publicPath = '/WFMinMaxer/';
+  }
+  return conf;
+};
