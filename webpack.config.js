@@ -5,15 +5,7 @@ const Merge = require('webpack-merge');
 const Styles = require('./config/webpack.styles.js');
 
 const TARGET = process.env.NODE_ENV;
-let DEBUG = false;
-
-if (TARGET === 'production') {
-  console.log('Using production settings.');
-  DEBUG = false;
-} else {
-  console.log('Using debug settings.');
-  DEBUG = true;
-}
+const DEBUG = TARGET !== 'production';
 
 const devOut = {
   publicPath: '/',
