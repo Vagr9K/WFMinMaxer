@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const Merge = require('webpack-merge');
 const Styles = require('./config/webpack.styles.js');
@@ -31,6 +32,7 @@ const config = {
   entry: {
     index: './src/index.jsx',
   },
+  devtool: DEBUG ? 'source-map' : 'hidden-source-map',
   module: {
     rules: [
       {
@@ -47,6 +49,9 @@ const config = {
   plugins: [
     new HtmlWebpackPlugin({
       template: 'src/index.ejs',
+    }),
+    new webpack.EnvironmentPlugin({
+      NODE_ENV: 'development',
     }),
   ],
 };

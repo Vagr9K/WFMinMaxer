@@ -24,7 +24,12 @@ function CSSLoader(CSSModules) {
 }
 
 function PostCSSLoader() {
-  return { loader: 'postcss-loader' };
+  return {
+    loader: 'postcss-loader',
+    options: {
+      sourceMap: DEBUG ? 'inline' : '',
+    },
+  };
 }
 
 function SassLoader() {
